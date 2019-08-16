@@ -1,0 +1,5 @@
+#!/usr/bin/env python
+# -*- coding:utf-8 -*-
+import box.storage
+if __name__ == '__main__':
+	box.storage.main()

@@ -1,0 +1,39 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta http-equiv="imagetoolbar" content="no"/>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<title></title>
+<link rel="stylesheet" href="../../Configurations/CSS/root.css"/>
+<link rel="stylesheet" href="../../Configurations/CSS/control.css"/>
+<script src="../../Library/jquery.js"></script>
+<script src="../../Library/jquery.l10n.js"></script>
+<script src="../../Library/library.js"></script>
+<script src="../../Library/api.js"></script>
+<script src="index.js"></script>
+<style>
+#main{box-sizing:border-box!important;background:#333;display:flex;flex-wrap:wrap;justify-content:start;align-content:start;align-items:start;}
+#main>div{border:1px solid #000;}
+#main>div.selected{border:1px solid #369;}
+#main>div>div{position:absolute;margin:.5em;}
+#main>div>div>a:before{font-family:box;font-size:14px;color:#fff;text-shadow:1px 1px 1px #000;}
+#main>div>div>a.zoomout{display:none;}
+#main>div>div>a.zoomin:before{content:'\7C';}#main>div>div>a.zoomout:before{content:'\7D';}
+img{width:100%;height:100%;user-select:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;}
+.record.ing:before{color:#f00;}
+</style>
+</head>
+<body class="layout nc">
+<div class="toolbar">
+	<div class="start"></div>
+	<div class="stop"></div>
+	<div class="screen"></div>
+	<div class="pic"></div>
+	<div class="record"></div>
+	<div class="open"></div>
+	<div class="settings"></div>
+</div>
+<div id="main"></div>
+</body>
+</html>

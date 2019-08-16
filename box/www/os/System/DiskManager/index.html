@@ -1,0 +1,119 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta http-equiv="imagetoolbar" content="no"/>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<title></title>
+<link rel="stylesheet" href="../../Configurations/CSS/root.css"/>
+<link rel="stylesheet" href="../../Configurations/CSS/control.css"/>
+<script src="../../Library/jquery.js"></script>
+<script src="../../Library/jquery.l10n.js"></script>
+<script src="../../Library/library.js"></script>
+<script src="../../Library/api.js"></script>
+<script src="index.js"></script>
+<style>
+#diskspanel>div{position:absolute;}
+/*#side{width:220px;height:100%;border-right:1px solid #ccc;}*/
+#diskspanel.collapsed #side{display:none;}
+/*#toggler{left:220px;height:100%;width:0;z-index:10;display:flex;align-items:center;overflow:visible;}
+#toggler::after{content:'\C2';font-family:box;font-size:32px;color:#ccc;}*/
+#diskspanel.collapsed #toggler{left:0;}
+#diskspanel.collapsed #toggler::after{content:'\C3';}
+/*#main{left:220px;width:calc(100% - 220px);height:calc(100% - 150px);margin-top:150px;}*/
+#main>*{float:left;}#buttons{padding:14px;}
+/*#chart{width:calc(100% - 220px);height:150px;left:220px;border-bottom:1px solid #ccc;}*/
+/*#diskspanel.collapsed #main,#diskspanel.collapsed #chart{left:0;width:100%;}*/
+#side ul{list-style:none;padding:0;margin:0;}
+#side ul li{}
+#side ul a{box-sizing:border-box;display:block;width:100%;padding:.25em 1em;box-sizing:border-box;cursor:pointer;}
+#side ul a:hover{background:#eee;}
+#side>ul>li>a::before{content:'\37 ';font-family:box;color:#9fa2a6;margin-right:.5em;}
+#side ul ul a{padding-left:2.5em;}
+#side ul ul a::before{content:'\36 ';font-family:box;color:#333;margin-right:.5em;}
+#side ul a.selected{background:#cce8ff;border:1px solid #99d1ff;}
+#chart a{z-index:2;position:absolute;box-sizing:border-box;width:100%;height:100%;padding:1em 0;background:#fff;border:4px solid #aaa;overflow:hidden;cursor:pointer;white-space:nowrap;}
+#chart a.selected{background-image:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"><line x1="10" y1="0" x2="0" y2="10" stroke="#dddddd"/></svg>');background-size:10px 10px;}
+#chart .primary{border-color:#3a6077;}
+#chart .extended{border-color:#8cd4e2;}
+#chart .logical{border-color:#3a6077;}
+#chart .logical,#chart .extended .freespace{height:100%;bottom:0;}
+#chart .freespace{background:#aaa;border:none;}
+#chart span,#chart a{box-sizing:border-box;position:absolute;display:block;left:0;top:0;width:100%;height:100%;padding:5px;text-align:left;z-index:1;}
+#chart span{z-index:0;background:rgba(255,255,0,.2);}
+#buttons button,#properties table{display:none;}
+svg{border-radius:50%;width:84px;height:84px;}
+circle {fill:#acacac;stroke:#26a0da;stroke-width:32;}
+table.param tr td:first-child::after{content:':';}
+#raidspanel>table{width:100%;}
+#raidspanel>table>tbody>tr>td{border-bottom:1px solid #ccc;}
+#raidspanel>table>tbody>tr>td:first-child{width:200px;}
+#raidspanel td{vertical-align:middle;}
+#raidspanel div{display:block;margin:15px;text-align:center;}
+#raidspanel div>div{box-sizing:border-box;display:inline-block;width:150px;height:100px;padding:10px;margin:5px;background:#616066;border:2px outset #777;}
+#raidspanel div>div span{display:inline-block;width:100%;height:26px;border:1px inset #777;margin-bottom:5px;background:#6d6e70;text-align:left;}
+#raidspanel div>div span.removed{background:#000;}#main div span.removed>*{display:none;}
+#raidspanel div>div i{color:#aaa;font-size:12px;}
+#raidspanel div>div span.removed i{display:none;}
+#raidspanel div>div span.removed.filled{background:#6d6e70;}
+#raidspanel div>div span.removed.filled i{display:inline-block;}
+#raidspanel div>div span.removed.filled i::before{background:#333;}
+#raidspanel div>div i::before{content:'';display:inline-block;width:6px;height:6px;margin:5px;border-radius:6px;background:#0f0;}
+#raidspanel div>div span.failed i::before{background:#ff0;}
+#raidspanel div>div a::after{content:'\B7';font-family: box;font-size: 12px;line-height: 22px;padding: 2px;float: right; background: #555;border-left: 1px solid #333;color: #888;}
+#raidspanel div>div span.removed a::after{content:'\BB';}
+#raidspanel div>div a:hover::after{color:#f00;}
+#raidspanel div>div span.removed a:hover::after{color:#0f0;}
+#raidspanel div>label{display:block;}
+#raidspanel div>a{color:#297acc;text-decoration:underline;cursor:pointer;}
+#menu{display:none;}
+@media screen and (max-width:480px) {
+	#raidspanel>table>tbody>tr>td{display:block;width:100%!important;}
+}
+</style>
+</head>
+<body class="tag">
+<div class="title">
+	<a l10n="disks" href="#diskspanel"></a>
+	<a l10n="raids" href="#raidspanel"></a>
+</div>
+<div class="content">
+	<div id="diskspanel">
+		<div id="chart"></div>
+		<div id="side" class="side left"></div>
+		<div id="main">
+			<div id="buttons">
+				<button id="eject" l10n="eject"></button>
+				<button id="erase" l10n="erase"></button>
+				<button id="mkpart" l10n="mkpart"></button>
+				<button id="rmpart" l10n="rmpart"></button>
+				<button id="format" l10n="format"></button>
+				<button id="mount" l10n="mount"></button>
+				<button id="umount" l10n="umount"></button>
+			</div>
+			<div id="properties">
+				<table class="param" id="disk">
+					<tr><td l10n="model"></td><td id="model"></td></tr>
+					<tr><td l10n="path"></td><td id="dpath"></td></tr>
+					<tr><td l10n="bus"></td><td id="bus"></td></tr>
+					<tr><td l10n="pttype"></td><td id="dtype"></td></tr>
+					<tr><td l10n="capacity"></td><td id="dcapacity"></td></tr>
+				</table>
+				<table class="param" id="partition">
+					<tr><td l10n="path"></td><td id="ppath"></td></tr>
+					<tr><td l10n="fslabel"></td><td id="fslabel"></td></tr>
+					<tr><td l10n="filesystem"></td><td id="filesystem"></td></tr>
+					<tr><td l10n="ptype"></td><td id="ptype"></td></tr>
+					<tr><td l10n="mountpoint"></td><td id="mountpoint"></td></tr>
+					<tr><td l10n="capacity"></td><td id="pcapacity"></td></tr>
+					<tr><td l10n="used"></td><td id="used"></td></tr>
+					<tr><td l10n="avail"></td><td id="avail"></td></tr>
+					<tr><th></th><td id="percent"></td></tr>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div id="raidspanel"></div>
+</div>
+</body>
+</html>

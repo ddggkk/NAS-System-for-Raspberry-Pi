@@ -1,0 +1,76 @@
+﻿*{font-family:"Microsoft YaHei","Microsoft JhengHei","Meiryo","Malgun Gothic","Arial";}
+html{background:#4c78cf url('../Images/bg.svg') no-repeat center center/cover;}
+html,body{font-size:14px;}
+body.loading{background:url(images/loading.gif) no-repeat center center;}
+body.loading > * {visibility:hidden;}
+img{border:none;}
+
+.win{background:var(--activeWinBackgroud);box-shadow:0 0 0 .5px var(--deactiveWinBorder),0 0 10px 0 rgba(0,0,0,.2);cursor:default;}
+.win.active{box-shadow:0 0 0 .5px var(--activeWinBorder),0 0 20px 5px rgba(0,0,0,.2);}
+.win.maxed{box-shadow:none!important;}
+.win > .caption{text-indent:1em;font-size:12px;line-height:30px;height:30px;color:var(--deactiveWinColor);overflow:hidden;}
+.win > .border{display:none;}
+.win > .n.border{display:block;width:100%;height:30px;}
+.win > .content{top:30px;width:100%;height:calc(100% - 30px);border:none;overflow:hidden;}
+.win > .mask{display:block;top:30px;width:100%;height:calc(100% - 30px);}
+.win > .mask.modal{left:0;top:0;width:100%;height:100%;}
+.win > .control{right:0;height:30px;width:auto;}
+.win > .control > * {display:inline-block;text-align:center;}
+.win > .control > *::after{display:inline-block;width:45px;height:30px;vertical-align:middle;font-family:box;font-size:14px;line-height:30px;color:var(--deactiveWinColor);}
+.win > .control > *:hover::after{background:var(--buttonFace);}
+.win > .control > *.close:hover::after{background:var(--alertBackgroud);color:var(--alertColor);}
+.win > .control .min::after{content:'\7B';}
+.win > .control .max::after{content:'\7C';}
+.win > .control .max.restore::after{content:'\7D';}
+.win > .control .close::after{content:'\7E';}
+.win > .caption{width:calc(100% - 150px);overflow:hidden;text-overflow:ellipsis;}
+.win > .buttons{text-align:center;}
+.win > .buttons button{margin:2em 0.5em;}
+.win.active > .control> *::after{color:var(--activeWinColor);}
+.win.active > .caption{color:var(--activeWinColor);}
+.win.active > .mask{display:none;}
+.win.alert > .content>*:first-child::before{content:'\41';font-family:box;font-size:48px;color:red;margin-right:24px;vertical-align:bottom;}
+.win.dragover > .mask{display:block!important;}
+
+.panel{background:var(--taskbarBackgroud);color:var(--taskbarColor);}
+.panel .icon{text-align:center;display:table;}
+.panel .icon::after{display:table-cell;vertical-align:middle;font-family:'box';font-size:16px;line-height:2em;color:var(--taskbarColor);}
+.panel .icon:hover::after{color:var(--taskbarHoverColor);}
+.panel .icon.mainmenu:hover::after{color:var(--taskbarMainmenuHoverColor);}
+.panel .icon.mainmenu::after{content:'\21';}
+.panel .icon.quit::after{content:'\22';}
+.panel .icon.power::after{content:'\24';}
+.panel .icon.preferences::after{content:'\26';}
+.panel .icon.notification::after{content:'\28';}
+.panel .icon.temp::after{content:'\73';}
+.panel .icon.bluetooth::after{content:'\74';}
+.panel .icon.wifi::after{content:'\75';}
+.panel .icon.taskview::after{content:'\2C';}
+.panel .icon.showdesktop::after{content:'\2E';}
+.panel .icon.mount::after{content:'\30';}
+.panel .icon.time{font-size:14px;line-height:40px;text-align:center;}
+.panel .menu{font-size:14px;background:var(--taskbarBackgroud);color:var(--taskbarColor);cursor:pointer;min-width:150px;}
+.panel .menu.mainmenu{width:400px;height:530px;overflow:hidden;display:flex;justify-content:space-between;flex-wrap: wrap;align-content: flex-start;}
+.panel .menu.mainmenu > *{background-color:var(--taskbarMainmenuHoverColor);border:1px solid transparent;display:-webkit-box;-webkit-box-align:end;-webkit-box-pack:center;display:-moz-box;-moz-box-align:end;-moz-box-pack:center;display:box;box-align:end;box-pack:center;float:left;width:90px;height:100px;margin:0;padding:10px;background-color:transparent;background-repeat:no-repeat;background-position:center 25px;background-size:40px 40px;text-align:center;font-size:12px;color:#fff;}
+.panel .menu.mainmenu::-webkit-scrollbar{width:12px;height:12px;}
+.panel .menu.mainmenu::-webkit-scrollbar,
+.panel .menu.mainmenu::-webkit-scrollbar-track,
+.panel .menu.mainmenu::-webkit-scrollbar-button,
+.panel .menu.mainmenu::-webkit-scrollbar-corner,
+.panel .menu.mainmenu::-webkit-scrollbar-resizer{background-color:#353535;}
+.panel .menu.mainmenu::-webkit-scrollbar-thumb{background-color:#5d5d5d;}
+.panel .menu.mainmenu:hover{overflow:auto;}
+.panel .menu > *{padding:.25em 2em;}
+.panel .menu > *:hover{background-color:var(--taskbarMainmenuHoverColor);color:var(--taskbarHoverColor);}
+.panel .menu > * > .close{width:1.5em;height:1.5em;}
+.panel .menu > * > .close::after{content:'\7E';font-family:box;display:inline-block;margin-right:1em;vertical-align:middle;}
+.panel .menu > *.disabled:hover{background-color:none;color:var(--taskbarColor);border:none;}
+.panel .menu > *.selected::before{content:'\2022';font-family:box;float:left;margin-left:-1em;color:#0f0}
+.panel .taskbar > *{background-size:24px 24px;}
+.panel .taskbar > *.selected{background-color:var(--taskbarSelectedItemBackgroud);background-repeat:no-repeat;background-position:center center;}
+
+
+
+body > .modal{width:100%;height:100%;display:none;}
+body > .ui-draggable-dragging{font-size:0;border:none !important;background:none !important;}
+body > .ui-draggable-dragging .fileicon::before{width:84px!important;height:84px!important;}

@@ -1,0 +1,2 @@
+0 * * * * root /usr/bin/python /box/bin/thumb
+* * * * * root /usr/bin/python /box/bin/mount check

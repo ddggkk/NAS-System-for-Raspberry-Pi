@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="512px" height="512px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="81.0396" y1="215.3142" x2="430.9604" y2="215.3142">
+	<stop  offset="0" style="stop-color:#EDCC69"/>
+	<stop  offset="1" style="stop-color:#FEE387"/>
+</linearGradient>
+<polygon fill="url(#SVGID_1_)" points="430.961,429.612 81.04,430.628 81.04,0 391.344,0 391.344,225.672 430.961,265.292 "/>
+<g>
+	<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="81.2485" y1="255.8083" x2="194.2485" y2="255.8083">
+		<stop  offset="0" style="stop-color:#F9E2A0"/>
+		<stop  offset="1" style="stop-color:#FFEAA5"/>
+	</linearGradient>
+	<path fill="url(#SVGID_2_)" d="M81.249,430.382V0.971l113,80.321v284.233l-8.679,12.548c-0.055,0.083-0.321,0.18-0.321,0.279
+		v132.292L81.249,430.382z"/>
+</g>
+<g>
+	<path fill="#231F20" d="M512,190.466l-252.664-0.038l-0.064,261.684l252.659,0.043L512,190.466z M294.543,410.882l0.004,22.438
+		h-22.445l0.008-22.443L294.543,410.882z M499.1,410.914l-0.002,22.443l-22.443-0.007l0.005-22.437H499.1z M294.556,370.607
+		l-0.006,22.434l-22.435-0.002l-0.006-22.432H294.556z M499.105,370.644l-0.004,22.434l-22.438,0.004l0.008-22.444L499.105,370.644z
+		 M294.563,330.33l-0.002,22.441l-22.444-0.004l-0.003-22.441L294.563,330.33z M499.118,330.371l-0.005,22.434l-22.444-0.005
+		l0.005-22.435L499.118,330.371z M294.58,290.057l-0.016,22.435h-22.445l0.01-22.434L294.58,290.057z M499.121,290.095l0.004,22.434
+		l-22.445-0.003l0.006-22.431H499.121z M294.582,249.782l-0.007,22.44l-22.444-0.004l0.007-22.441L294.582,249.782z
+		 M499.134,249.814l-0.007,22.443l-22.434-0.004l-0.004-22.443L499.134,249.814z M294.584,209.508l-0.006,22.438h-22.445
+		l0.008-22.446L294.584,209.508z M499.137,209.541l-0.003,22.443l-22.439-0.004l-0.002-22.445L499.137,209.541z"/>
+	<g>
+		<g>
+			
+				<rect x="334.453" y="305.672" transform="matrix(1.335899e-004 -1 1 1.335899e-004 3.3789 767.7373)" fill="#389AE8" width="102.313" height="153.014"/>
+			<polygon fill="#389AE8" points="309.111,312.156 309.135,209.845 462.145,209.871 462.13,312.187 			"/>
+		</g>
+	</g>
+</g>
+</svg>

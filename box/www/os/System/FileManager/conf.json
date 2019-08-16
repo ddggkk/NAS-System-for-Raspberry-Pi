@@ -1,0 +1,6 @@
+﻿{
+"caption":{"en":"Computer","zh-cn":"此电脑"}
+,"multiwin":true
+,"content":""
+,"init":"new fileManager(o,w)"
+}

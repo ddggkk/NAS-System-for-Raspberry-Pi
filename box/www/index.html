@@ -1,0 +1,24 @@
+﻿<!doctype html>
+<html>
+<head>
+</head>
+<body>
+<script>
+var REMOTE='https://172.31.0.241/',DOMAIN=location.protocol==='file:'?REMOTE:'/',api='box/info/base',info,local,TIMEOUT=5000,redirecturl='os/login.html';
+function parse(json){
+	sessionStorage.domain=DOMAIN;sessionStorage.devinfo=JSON.stringify(json);info=json;
+	if(!json.adminuser){redirecturl='os/install.html';}
+	if(!json.registered){redirecturl='os/register.html';}
+	if(json.ipaddr===location.host||location.protocol==='file:')location=redirecturl;else detect();
+}
+function detect(){
+	document.write(`<script src="https://${info.ipaddr}/${api}?callback=tryLocal" ></`+`script>`);
+	window.setTimeout(function(){location=redirecturl;},TIMEOUT);
+}
+function tryLocal(json){
+	if(json.mac.toLowerCase()===info.mac.toLowerCase()){location=`https://${info.ipaddr}/`;}
+}
+if(location.protocol==='file:')document.write('<script src='+DOMAIN+api+'?_='+(new Date().getTime())+'&callback=parse></'+'script>');
+</script>
+</body>
+</html>

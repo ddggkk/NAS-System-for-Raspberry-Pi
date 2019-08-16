@@ -1,0 +1,95 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta http-equiv="imagetoolbar" content="no"/>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+<title></title>
+<link rel="stylesheet" href="../../Configurations/CSS/root.css"/>
+<link rel="stylesheet" href="../../Configurations/CSS/control.css"/>
+<script src="../../Library/jquery.js"></script>
+<script src="../../Library/jquery.l10n.js"></script>
+<script src="../../Library/library.js"></script>
+<script src="../../Library/api.js"></script>
+<script src="index.js"></script>
+<style>
+body{background:none;display:flex;justify-content:center;align-items:center}
+.rc{width:240px;height:500px;display:flex;flex-wrap:wrap;justify-content:center;align-items:center}
+.ar{width:200px;height:200px;background:#939597;border-radius:100px;}
+.bt{width:210px;height:260px;display:flex;flex-wrap:wrap;justify-content:space-between;align-content:space-between;}
+.bt>button{width:50px;height:50px;min-width:auto;padding:0;margin:auto;background:#f1f1f2;border:1px solid #d1d2d4;border-radius:10px;box-shadow:0 0 5px rgba(0,0,0,.2);}
+.dr{width:200px;height:200px;position:absolute;z-index:0;}
+.dr>div{width:40px;height:40px;position:absolute;}
+#up,#down{margin-left:80px;}#down{margin-top:165px;}
+#left,#right{margin-top:80px;}#right{margin-left:160px;}
+#enter{position:absolute;z-index:1;width:120px;height:120px;background:#939597;border:20px solid #e9e9eb;border-radius:120px;margin:40px;}
+[id]{text-align:center;font-size:30px;line-height:30px;color:#bbbdc0;}
+[id]::before{display:inline-block;content:'';font-family:box;}
+[id]:hover::before{color:#00adef;}
+.bt>button::before{line-height:50px;}
+.bt>button:focus{outline:none;animation:225ms flash forwards;}
+@keyframes flash{0%{background:#fff;}to{background:#f1f1f2;}}
+#enter::before{content:'\DA';font-size:50px;line-height:85px;}
+#up::before{content:'\DB';}
+#down::before{content:'\DC';}
+#left::before{content:'\DD';}
+#right::before{content:'\DE';}
+#power::before{content:'\C6';color:#f00;}
+#power.on::before{color:#0f0;}
+#info::before{content:'\C7';}
+#home::before{content:'\C8';}
+#back::before{content:'\C9';}
+#previous::before{content:'\CA';}
+#pause::before{content:'\CB';}
+#next::before{content:'\CC';}
+#random::before{content:'\CD';}
+#rewind::before{content:'\CE';}
+#stop::before{content:'\CF';}
+#forward::before{content:'\D0';}
+#loop::before{content:'\D1';}
+#mute::before{content:'\D2';}
+#vp::before{content:'\D3';}
+#vn::before{content:'\D4';}
+#vtp::before{content:'\D5';}
+#st::before{content:'\D6';}
+#stp::before{content:'\D7';}
+#stn::before{content:'\D8';}
+#vtn::before{content:'\D9';}
+</style>
+</head>
+<body>
+	<div class="rc">
+		<div class="ar">
+			<div class="dr">
+				<div id="up"></div>
+				<div id="down"></div>
+				<div id="left"></div>
+				<div id="right"></div>
+			</div>
+			<div id="enter"></div>
+		</div>
+		<div class="bt">
+			<button id="power"></button>
+			<button id="info"></button>
+			<button id="home"></button>
+			<button id="back"></button>
+			<button id="previous"></button>
+			<button id="pause"></button>
+			<button id="next"></button>
+			<button id="random"></button>
+			<button id="rewind"></button>
+			<button id="stop"></button>
+			<button id="forward"></button>
+			<button id="loop"></button>
+			<button id="mute"></button>
+			<button id="vp"></button>
+			<button id="vn"></button>
+			<button id="vtp"></button>
+			<button id="st"></button>
+			<button id="stp"></button>
+			<button id="stn"></button>
+			<button id="vtn"></button>
+		</div>
+	</div>
+</body>
+</html>

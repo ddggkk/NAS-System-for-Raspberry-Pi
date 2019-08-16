@@ -1,0 +1,36 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta http-equiv="imagetoolbar" content="no"/>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+<title></title>
+<link rel="stylesheet" href="../../Configurations/CSS/root.css"/>
+<link rel="stylesheet" href="../../Configurations/CSS/control.css"/>
+<script src="../../Library/jquery.js"></script>
+<script src="../../Library/jquery.l10n.js"></script>
+<script src="../../Library/library.js"></script>
+<script src="../../Library/api.js"></script>
+<script src="index.js"></script>
+</head>
+<body>
+<table class="param">
+<tbody>
+	<tr><td l10n="startonboot"></td><td><input type="checkbox" id="enabled"><input type="hidden" id="status"></td></tr>
+	<tr><td l10n="N2N_SUPERNODE"></td><td><input type="text" id="N2N_SUPERNODE"></td></tr>
+	<tr><td l10n="N2N_SUPERNODE_PORT"></td><td><input type="text" id="N2N_SUPERNODE_PORT"></td></tr>
+	<tr><td colspan="2"><hr></td></tr>
+	<tr><td l10n="N2N_COMMUNITY"></td><td><input type="text" id="N2N_COMMUNITY"></td></tr>
+	<tr><td l10n="N2N_KEY"></td><td><input type="text" id="N2N_KEY"></td></tr>
+	<tr><td l10n="N2N_IP"></td><td><input type="text" id="N2N_IP"></td></tr>
+</tbody>
+<tfoot>
+<tr><td colspan="2">
+	<button id="start" l10n="startup"></button>
+	<button id="restart" l10n="restart"></button>
+	<button id="stop" l10n="stop"></button>
+</td></tr>
+</tfoot>
+</table>
+</body>
+</html>

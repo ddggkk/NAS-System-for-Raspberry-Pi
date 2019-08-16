@@ -1,0 +1,36 @@
+﻿:root{
+	font-size:14px;
+	--buttonFace:#e1e1e1;
+	--buttonBorder:1px solid #adadad;
+	--buttonFaceOver:#e5f1fb;
+	--buttonBorderOver:1px solid #0078d7;
+	--menuBackground:#f2f2f2;
+	--menuBorder:1px solid #ccc;
+	--menuColor:#000;
+	--activeWinColor:#000;
+	--deactiveWinColor:#999;
+	--activeWinBackgroud:#fff;
+	--deactiveWinBackgroud:#fff;
+	--activeWinBorder:#0078d7;
+	--deactiveWinBorder:#ccc;
+	--alertBackgroud:#f00;
+	--alertColor:#fff;
+	--taskbarBackgroud:rgba(0,0,0,.618);
+	--taskbarSelectedItemBackgroud:rgba(128,128,128,.3);
+	--taskbarColor:#ccc;
+	--taskbarHoverColor:#fff;
+	--taskbarMainmenuHoverColor:#297acc;
+	--dialogBackground:#f0f0f0;
+	--line:1px solid #d9d9d9;
+	--BORDER:1px solid #f0f0f0;
+	--SELECTED_BACK:rgba(153,209,255,.5);
+	--SELECTED_COLOR:#000;
+	--SELECTED_BORDER:1px solid #99d1ff;
+	--TRANSPARENT_BORDER:1px solid transparent;
+	--HOVER_BACK:#efefef;
+	--HOVER_BORDER:1px solid #eee;
+	--ICON_COLOR:#5cbaed;
+}
+@font-face {font-family:'box';src:url('webos.woff') format('woff');font-weight: normal;font-style: normal;}
+html,body{width:100%;height:100%;padding:0;margin:0;overflow:hidden;}
+*{box-sizing:border-box;}

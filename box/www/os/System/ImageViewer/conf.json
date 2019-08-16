@@ -1,0 +1,6 @@
+﻿{
+"caption":{"en":"Image Viewer","zh-cn":"图片查看器"}
+,"multiwin":true
+,"startmenu":false
+,"css":"win.css"
+}

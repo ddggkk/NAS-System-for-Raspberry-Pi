@@ -1,0 +1,32 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta http-equiv="imagetoolbar" content="no"/>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<title></title>
+<link rel="stylesheet" href="../../Configurations/CSS/root.css" />
+<link rel="stylesheet" href="../../Configurations/CSS/control.css" />
+<script src="../../Library/jquery.js"></script>
+<script src="../../Library/jquery.l10n.js"></script>
+<script src="../../Library/library.js"></script>
+<script src="../../Library/api.js"></script>
+<script src="accounts.js"></script>
+</head>
+<body>
+	<div id="west" class="side left layout nc">
+		<div class="toolbar"><div class="add"></div><div class="del"></div></div>
+		<div><ul id="list" class="listview iconlist small user"></ul></div>
+	</div>
+	<div id="center">
+		<table class="table padding">
+			<tr><td l10n="username"></td><td><input type="text" id="username"/></td></tr>
+			<tr><td l10n="password"></td><td><input type="password" id="password"/></td></tr>
+			<tr><td l10n="confirmpass"></td><td><input type="password" id="confirmpass"/></td></tr>
+			<tr><td l10n="administrator"></td><td><input type="checkbox" id="admin"/></td></tr>
+			<tr><td></td><td id="info"></td></tr>
+			<tr><td></td><td><button id="ok" l10n="ok"/></td></tr>
+		</table>
+	</div>
+</body>
+</html>

@@ -1,0 +1,7 @@
+﻿.MediaPlayer.win{background:rgba(0,0,0,.618);}
+.MediaPlayer.win.active{background:rgba(0,0,0,.8);}
+.MediaPlayer.win .caption{color:#888;}
+.MediaPlayer.win .content{background:none;border:none;}
+.MediaPlayer.win .control > *::after{background:none;color:#ccc;}
+.MediaPlayer.win .control > *:hover::after{background:none;color:#fff;}
+.MediaPlayer.win.active .caption{color:#fff;}

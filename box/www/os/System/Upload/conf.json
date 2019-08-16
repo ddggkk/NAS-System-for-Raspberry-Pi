@@ -1,0 +1,6 @@
+﻿{
+"caption":{"en":"Upload","zh-cn":"上传"}
+,"startmenu":false
+,"content":""
+,"init":"new upload(o,w)"
+}

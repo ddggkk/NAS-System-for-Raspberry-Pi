@@ -1,0 +1,37 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta http-equiv="imagetoolbar" content="no"/>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<title></title>
+<link rel="stylesheet" href="../../Configurations/CSS/root.css" />
+<link rel="stylesheet" href="../../Configurations/CSS/control.css" />
+<script src="../../Library/jquery.js"></script>
+<script src="../../Library/jquery.l10n.js"></script>
+<script src="../../Library/library.js"></script>
+<script src="../../Library/api.js"></script>
+<script src="network.js"></script>
+</head>
+<body>
+	<div id="west" class="side left">
+		<ul class="listview iconlist small" id="list"></ul>
+	</div>
+	<div id="center">
+		<table id="dns" class="table padding">
+			<tr><td l10n="dns1"></td><td><input type="text" id="dns1"></td></tr>
+			<tr><td l10n="dns2"></td><td><input type="text" id="dns2"></td></tr>
+			<tr><td></td><td><button l10n="ok" id="setdns"></button></td></tr>
+		</table>
+		<table id="adapter" class="table padding">
+			<tr id="WLAN"><td l10n="WLAN"></td><td><select type="text" id="wlan"></select></td></tr>
+			<tr id="WLANPSK"><td l10n="password"></td><td><input type="password" id="psk"></td></tr>
+			<tr><td l10n="dhcp"></td><td style="text-align:left"><input type="checkbox" id="dhcp"><input type="hidden" id="name"></td></tr>
+			<tr><td l10n="ipaddr"></td><td><input type="text" id="ipaddr"></td></tr>
+			<tr><td l10n="netmask"></td><td><input type="text" id="netmask"></td></tr>
+			<tr><td l10n="defaultgateway"></td><td><input type="text" id="gateway"></td></tr>
+			<tr><td></td><td><button l10n="ok" id="setnetwork"></button></td></tr>
+		</table>
+	</div>
+</body>
+</html>

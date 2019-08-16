@@ -1,0 +1,82 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta http-equiv="imagetoolbar" content="no"/>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<title></title>
+<link rel="shortcut icon" href="os/Configurations/Images/favicon.ico" type="image/vnd.microsoft.icon"/>
+<link rel="stylesheet" href="os/Configurations/CSS/root.css"/>
+<link rel="stylesheet" href="os/Configurations/CSS/control.css"/>
+<script>
+var ROOT=location.pathname,DIR='/',_DIR;
+document.title=ROOT;
+function load(path){
+	_DIR=DIR;
+	DIR=path;
+	let w=document.getElementById('waiting');
+	w.style.display='flex';
+	let o={
+		method:'get'
+		,headers:{'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8'}
+		,cache:'reload'
+		,dataType:'json'
+		,processData:true
+	};
+	let u=ROOT+path;
+	fetch(u,o).then((r)=>{
+		w.style.display='none';
+		if(!(r.status>=200&&r.status<300)){alert(r.statusText);return}
+		return r.json();
+	}).then(parse);
+}
+function parse(j){
+	let ul=document.getElementById('list');
+	ul.innerHTML='';
+	if(typeof(j))
+	if(DIR!=='/'){
+		let li=document.createElement('li');
+		li.innerHTML='<h2>..</h2><p>&nbsp;</p>';
+		li.path=_DIR;
+		ul.appendChild(li);
+		li.className='folder';
+		li.onclick=function(){load(this.path);}
+	}
+	for(var i of j){
+		let li=document.createElement('li');
+		li.name=i.name;
+		li.path=DIR+i.name
+		if(i.name.indexOf('.')==0){
+			li.innerHTML='<h2>'+i.name.replace('.','')+'</h2><p>'+bytesToSize(i.size)+'</p>';
+		}else{
+			li.innerHTML='<h2>'+i.name+'</h2><p>'+bytesToSize(i.size)+'</p>';
+		}
+		ul.appendChild(li);
+		if(/\/$/.test(i.name)){
+			li.className='folder';
+			li.onclick=function(){
+				load(this.path);
+			}
+		}else{
+			li.className='file';
+			li.onclick=function(){
+				window.open(ROOT+this.path);
+			}
+		}
+	}
+}
+function bytesToSize(bytes){
+	bytes=bytes-0;
+	if(bytes===0)return '0 B';
+	var k=1024;  
+	var s=['B','KB','MB','GB','TB','PB','EB','ZB','YB'];  
+	var i=Math.floor(Math.log(bytes)/Math.log(k));  
+	return (bytes/Math.pow(k,i)).toFixed(2)+' '+s[i]; 
+}
+</script>
+</head>
+<body style="overflow:auto;">
+<ul id="list" class="listview iconlist"></ul>
+<div id="waiting" class="waiting" style="display:none;"></div>
+</body>
+</html>

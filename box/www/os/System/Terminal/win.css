@@ -1,0 +1,7 @@
+﻿.Terminal.win{background:rgba(0,0,0,.618);}
+.Terminal.win.active{background:rgba(0,0,0,.8);}
+.Terminal.win .caption{color:#888;}
+.Terminal.win .content{background:none;border:none;}
+.Terminal.win .control > *::after{background:none;color:#ccc;}
+.Terminal.win .control > *:hover::after{background:none;color:#fff;}
+.Terminal.win.active .caption{color:#fff;}

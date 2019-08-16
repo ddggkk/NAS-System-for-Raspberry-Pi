@@ -1,0 +1,4 @@
+#!/bin/sh
+sudo spawn-fcgi -f /box/bin/box -a 127.0.0.1 -p 9002 -F 10 >/dev/null 2>&1
+sudo /box/bin/storage >/dev/null 2>&1
+sudo ntpdate pool.ntp.org >/dev/null 2>&1

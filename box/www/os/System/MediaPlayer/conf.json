@@ -1,0 +1,6 @@
+﻿{
+"caption":{"en":"Media Player","zh-cn":"媒体播放器"}
+,"multiwin":true
+,"startmenu":false
+,"css":"win.css"
+}

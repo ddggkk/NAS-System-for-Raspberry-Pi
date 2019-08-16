@@ -1,0 +1,72 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta http-equiv="imagetoolbar" content="no"/>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<title></title>
+<link rel="stylesheet" href="../../Configurations/CSS/root.css"/>
+<link rel="stylesheet" href="../../Configurations/CSS/control.css"/>
+<script src="../../Library/jquery.js"></script>
+<script src="../../Library/jquery.l10n.js"></script>
+<script src="../../Library/library.js"></script>
+<script src="../../Library/api.js"></script>
+<script>
+function init(){
+	var p=WINDOW.param.path;
+	var j=OS.path.getProp(p);
+	$('#path').html(p);
+	$('#name').html(j.name);
+	$('#type').html(j.type);
+	$('#size').html(j.sizestr);
+	$('#mtime').html(j.mtimestr);
+	$('#icon').addClass(j.classname);
+	$('#owner').html(j.owner);
+	$('#group').html(j.group);
+	if(j.thumbnail)$('#icon>div').css({backgroundImage:'url("'+j.thumbnail+'")'});
+	var m=j.modestr;
+	for(var i in m){if(m[i]==='1'){$('#m'+i).prop('checked','checked')}else{$('#m'+i).removeProp('checked')}}
+	$('#cancel').click(()=>WINDOW.close());
+	$('#ok').click(set);
+}
+function set(){
+	var p=WINDOW.param.path;
+	var m1='',m2='',m3='';
+	for(var i=0;i<9;i++){
+		var _m=$('#m'+i).is(':checked')?'1':'0';
+		if(i<3)m1+=_m;
+		if(i>=3&&i<6)m2+=_m;
+		if(i>=6)m3+=_m;
+	}
+	var m=[parseInt(m1,2),parseInt(m2,2),parseInt(m3,2)].join('');
+	OS.path.chmod({data:{path:p,mode:m},success:(j)=>{if(j.message==='')WINDOW.close();else WINDOW.alert(j.message);}});
+}
+</script>
+</head>
+<body class="dialog">
+<div>
+<table class="param" width="100%" border="0" cellpadding="5">
+	<tr><td id="icon" class="fileicon"><div></div></td><td><div id="name"></div></td></tr>
+	<tr><td colspan="2"><hr/></td></tr>
+	<tr><td l10n="filetype"></td><td id="type"></td></tr>
+	<tr><td l10n="filepath"></td><td id="path"></td></tr>
+	<tr><td l10n="filesize"></td><td id="size"></td></tr>
+	<tr><td colspan="2"><hr/></td></tr>
+	<tr><td l10n="mtime"></td><td id="mtime"></td></tr>
+	<tr><td colspan="2"><hr/></td></tr>
+	<tr><td l10n="properties" valign="top"></td><td>
+		<table>
+			<tr><td></td><td l10n="read"></td><td l10n="write"></td><td l10n="execute"></td></tr>
+			<tr><td><span l10n="owner"></span>(<span id="owner"></span>)</td><td><input id="m0" type="checkbox"/></td><td><input id="m1" type="checkbox"/></td><td><input id="m2" type="checkbox"/></td></tr>
+			<tr><td><span l10n="group"></span>(<span id="group"></span>)</td><td><input id="m3" type="checkbox"/></td><td><input id="m4" type="checkbox"/></td><td><input id="m5" type="checkbox"/></td></tr>
+			<tr><td><span l10n="others"></span></td><td><input id="m6" type="checkbox"/></td><td><input id="m7" type="checkbox"/></td><td><input id="m8" type="checkbox"/></td></tr>
+		</table>
+	</td></tr>
+</table>
+</div>
+<div>
+<button l10n="ok" id="ok"></button>
+<button l10n="cancel" id="cancel"></button>
+</div>
+</body>
+</html>

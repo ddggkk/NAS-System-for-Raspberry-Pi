@@ -1,0 +1,7 @@
+﻿.ImageViewer.win{background:rgba(0,0,0,.618);}
+.ImageViewer.win.active{background:rgba(0,0,0,.8);}
+.ImageViewer.win .caption{color:#888;}
+.ImageViewer.win .content{background:none;border:none;}
+.ImageViewer.win .control > *::after{background:none;color:#ccc;}
+.ImageViewer.win .control > *:hover::after{background:none;color:#fff;}
+.ImageViewer.win.active .caption{color:#fff;}
